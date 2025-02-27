@@ -5,7 +5,7 @@ class Mobil:
         self.model = model     # Atribut model mobil
         self.tahun = tahun     # Atribut tahun pembuatan mobil
         self.warna = warna     # Atribut warna mobil
-
+        
     # Metode untuk menampilkan informasi mobil
     def tampilkan_info(self):
         return f"Mobil {self.merk} {self.model} ({self.tahun}) berwarna {self.warna}"
