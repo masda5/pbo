@@ -1,32 +1,25 @@
 class Mobil:
-    # Konstruktor untuk menginisialisasi objek dengan atribut
-    def __init__(self, merk, model, tahun, warna):
-        self.merk = merk       # Atribut merk mobil
-        self.model = model     # Atribut model mobil
-        self.tahun = tahun     # Atribut tahun pembuatan mobil
-        self.warna = warna     # Atribut warna mobil
-        
-    # Metode untuk menampilkan informasi mobil
-    def tampilkan_info(self):
-        return f"Mobil {self.merk} {self.model} ({self.tahun}) berwarna {self.warna}"
+    def __init__(self, merk, model, tahun):
+        self.merk = merk
+        self.model = model
+        self.tahun = tahun
+        self.kecepatan = 0
 
-    # Metode untuk menyalakan mobil
     def nyalakan_mesin(self):
-        return f"Mesin {self.merk} {self.model} dinyalakan."
+        print(f"Mesin {self.merk} {self.model} dinyalakan.")
 
-    # Metode untuk mengendarai mobil
-    def mengemudi(self):
-        return f"{self.merk} {self.model} sedang dikendarai."
+    def tambah_kecepatan(self, nilai):
+        self.kecepatan += nilai
+        print(f"Kecepatan bertambah {nilai} km/jam. Kecepatan sekarang: {self.kecepatan} km/jam.")
 
-# Membuat objek mobil dari kelas Mobil
-mobil_1 = Mobil("Toyota", "Corolla", 2020, "Merah")
-mobil_2 = Mobil("Honda", "Civic", 2022, "Biru")
+    def rem(self, nilai):
+        self.kecepatan -= nilai
+        if self.kecepatan < 0:
+            self.kecepatan = 0
+        print(f"Rem ditekan, kecepatan berkurang {nilai} km/jam. Kecepatan sekarang: {self.kecepatan} km/jam.")
 
-# Menggunakan metode dari objek mobil
-print(mobil_1.tampilkan_info())   # Menampilkan informasi mobil_1
-print(mobil_1.nyalakan_mesin())   # Menyalakan mesin mobil_1
-print(mobil_1.mengemudi())        # Mengendarai mobil_1
-
-print(mobil_2.tampilkan_info())   # Menampilkan informasi mobil_2
-print(mobil_2.nyalakan_mesin())   # Menyalakan mesin mobil_2
-print(mobil_2.mengemudi())        # Mengendarai mobil_2
+# Contoh penggunaan
+mobil1 = Mobil("Toyota", "Corolla", 2022)
+mobil1.nyalakan_mesin()
+mobil1.tambah_kecepatan(30)
+mobil1.rem(10)
